@@ -1,6 +1,7 @@
 gym-super-mario-bros
 nes-py
 gym==0.26.2
+numpy<2.0  # Required for compatibility with nes-py and gym 0.26.2
 stable-baselines3[extra]
 tensorboard
 # Leave torch for manual install so you can choose correct CUDA build

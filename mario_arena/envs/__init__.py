@@ -5,7 +5,24 @@ This module provides clean wrappers around gym-super-mario-bros
 optimized for reinforcement learning training.
 """
 
-# Imports will be added as modules are implemented
-# from .mario_env import make_mario_env, MarioArenaEnvConfig
+from .mario_env import (
+    make_mario_env,
+    MarioArenaEnvConfig,
+    get_action_meanings,
+    extract_info_from_env,
+    SkipFrame,
+    GrayScaleObservation,
+    ResizeObservation,
+    FrameStack,
+)
 
-__all__ = []
+__all__ = [
+    "make_mario_env",
+    "MarioArenaEnvConfig",
+    "get_action_meanings",
+    "extract_info_from_env",
+    "SkipFrame",
+    "GrayScaleObservation",
+    "ResizeObservation",
+    "FrameStack",
+]

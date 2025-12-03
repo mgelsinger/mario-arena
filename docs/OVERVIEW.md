@@ -53,21 +53,35 @@ The environment wrapper (`mario_arena/envs/mario_env.py`) provides a clean inter
 
 ### Example Usage
 
-Once implemented in Phase 2, you'll be able to use the environment like this:
-
 ```python
-from mario_arena.envs import make_mario_env
+from mario_arena.envs import make_mario_env, get_action_meanings, extract_info_from_env
 
 # Create environment with default settings
 env = make_mario_env("SuperMarioBros-1-1-v0", render_mode=None)
 
-# Reset and take random steps
-obs = env.reset()
+# Check environment properties
+print(f"Observation space: {env.observation_space}")  # Box(0, 255, (84, 84, 4), uint8)
+print(f"Action space: {env.observation_space}")  # Discrete(7)
+
+# Get action meanings
+actions = get_action_meanings("simple")
+print(f"Actions: {actions}")  # ['NOOP', 'right', 'right + A', ...]
+
+# Reset and take random steps (handles both old and new gym API)
+result = env.reset()
+obs = result[0] if isinstance(result, tuple) else result
+
 for _ in range(100):
     action = env.action_space.sample()
     obs, reward, done, info = env.step(action)
+
+    # Extract useful info
+    extracted = extract_info_from_env(info)
+    print(f"X-pos: {extracted['x_pos']}, Coins: {extracted['coins']}")
+
     if done:
-        obs = env.reset()
+        result = env.reset()
+        obs = result[0] if isinstance(result, tuple) else result
 
 env.close()
 ```
