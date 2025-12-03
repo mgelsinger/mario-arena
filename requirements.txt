@@ -1,0 +1,6 @@
+gym-super-mario-bros
+nes-py
+gym==0.26.2
+stable-baselines3[extra]
+tensorboard
+# Leave torch for manual install so you can choose correct CUDA build
