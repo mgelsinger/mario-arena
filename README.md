@@ -12,6 +12,11 @@ Mario Arena provides a standardized framework for training, evaluating, and comp
 - **Renders** trained models so you can watch them play
 - **Races** multiple agents head-to-head (planned feature)
 
+## Status & Notes
+
+- Directory/package naming is already correct (`mario-arena` repo, `mario_arena` package). No change required; optional `src` layout is described in `docs/STATUS.md`.
+- Considering migrating from Gym to Gymnasium to align with Stable-Baselines3 and drop compatibility shims. Need to verify `gym-super-mario-bros` works under Gymnasium (see `docs/STATUS.md` for options and next step).
+
 ## Features
 
 - Clean wrapper around `gym-super-mario-bros` optimized for RL training
@@ -104,6 +109,7 @@ mario-arena/
 
 ## Documentation
 
+- [STATUS.md](docs/STATUS.md) - Current notes on layout and Gymnasium migration
 - [OVERVIEW.md](docs/OVERVIEW.md) - Technical overview and architecture
 - [SCORING.md](docs/SCORING.md) - Arena scoring system explained
 
